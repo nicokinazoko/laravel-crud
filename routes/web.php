@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\questionControler;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/pertanyaan', 'questionControler@index');
+Route::get('/pertanyaan/create', 'questionControler@create');
+Route::post('/pertanyaan','questionControler@store');
+
+Route::get('/jawaban/{id}', 'answerController@index')->name('jawaban.index');
+Route::post('/jawaban/{id}', 'answerController@store')->name('jawaban.store');
+
