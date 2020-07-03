@@ -31,7 +31,34 @@ class questionControler extends Controller
 
         if($question)
         {
-            return view('/items/questionView');
+            return redirect('/pertanyaan');
         }
+    }
+
+    public function detail($id)
+    {
+        $question               =   questionModel::findbyIdJoin($id);
+        return view('items/detailQuestion',compact('question'));
+        //dd($question);
+    }
+
+    public function edit($id)
+    {
+        $question               =   questionModel::findbyId($id);
+        return view('/items/questionEdit',compact('question'));
+        //dd($question);
+    }
+
+    public function update($id, Request $request)
+    {
+        $question               =   questionModel::update($id,$request->all());
+        return redirect('/pertanyaan');
+    }
+
+    public function delete($id)
+    {
+        $delete_question        =   questionModel::delete($id);
+
+        return redirect('/pertanyaan');
     }
 }

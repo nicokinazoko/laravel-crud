@@ -22,6 +22,14 @@ Route::get('/pertanyaan', 'questionControler@index');
 Route::get('/pertanyaan/create', 'questionControler@create');
 Route::post('/pertanyaan','questionControler@store');
 
+Route::get('pertanyaan/{id}', 'questionControler@detail');
+Route::get('pertanyaan/{id}/edit','questionControler@edit');
+
+Route::put('pertanyaan/{id}','questionControler@update');
+Route::delete('pertanyaan/{id}', 'questionControler@delete');
+
 Route::get('/jawaban/{id}', 'answerController@index')->name('jawaban.index');
 Route::post('/jawaban/{id}', 'answerController@store')->name('jawaban.store');
+
+
 

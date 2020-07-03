@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="ml-3 mt-3">
-        <a href="/pertanyaan/create" class="btn btn-primary">Pertanyaan Baru</a>
+        <a href="/pertanyaan/" class="btn btn-primary">Home</a>
     </div>
 <table class="table">
     <thead>
@@ -12,7 +12,11 @@
         <th scope="col">Isi Pertanyaan</th>
         <th scope="col">Tanggal Dibuat Pertanyaan</th>
         <th scope="col">ID Penanya</th>
-        <th scope="col">Action</th>
+        <th scope="col">ID Jawaban</th>
+        <th scope="col">Isi Jawaban</th>
+        <th scope="col">Tanggal Dibuat Jawaban</th>
+        <th scope="col">Tanggal Diperbaharui Jawaban</th>
+        {{-- <th scope="col">Action</th> --}}
       </tr>
     </thead>
     <tbody>
@@ -23,17 +27,13 @@
             <td>{{$questions->isi_pertanyaan}}</td>
             <td>{{$questions->tanggal_dibuat_pertanyaan}}</td>
             <td>{{$questions->id_penanya}}</td>
-            <td>
-            <a href="/pertanyaan/{{$questions->id_pertanyaan}}" class="btn btn-primary">Detail</a>
-            <a href="/pertanyaan/{{$questions->id_pertanyaan}}/edit" class="btn btn-primary">Update</a>
-            <form action="/pertanyaan/{{$questions->id_pertanyaan}}" method="post" style="display: inline">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-sm-danger">
-                    <i class="fas fa-trash"></i>
-                </button>
-            </td>
-            </form>
+            <td>{{$questions->id_jawaban}}</td>
+            <td>{{$questions->isi_jawaban}}</td>
+            <td>{{$questions->tanggal_dibuat_jawaban}}</td>
+            <td>{{$questions->tanggal_diperbaharui_jawaban}}</td>
+            {{-- <td>
+                <a href="/pertanyaan" class="btn btn-primary">Detail</a>
+            </td> --}}
         </tr>
         @endforeach
 
@@ -42,3 +42,4 @@
   </table>
 
 @endsection
+

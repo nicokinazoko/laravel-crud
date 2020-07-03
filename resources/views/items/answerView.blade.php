@@ -15,7 +15,7 @@
     <tbody>
         @foreach ($jawaban as $key => $answer)
         <tr>
-            <td>1</td>
+            <td>{{$key + 1}}</td>
             <td>{{$answer->isi_jawaban}}</td>
             <td>{{$answer->tanggal_dibuat_jawaban}}</td>
             <td>{{$answer->tanggal_diperbaharui_jawaban}}</td>
